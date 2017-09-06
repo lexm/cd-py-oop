@@ -3,12 +3,23 @@ class MathDojo(object):
         self.result = 0
     def add(self, *args):
         for arg in args:
-            self.result += arg
+            if type(arg) is list:
+                for item in arg:
+                    self.result += item
+            else:
+                self.result += arg
         return self
-    def substract(self, *args):
+    def subtract(self, *args):
         for arg in args:
-            self.result -= arg
+            if type(arg) is list:
+                for item in arg:
+                    self.result -= item
+            else:
+                self.result -= arg
         return self
 
 md = MathDojo()
-print md.add(2).add(2,5).substract(3,2).result
+print md.add(2).add(2,5).subtract(3,2).result
+
+md2 = MathDojo()
+print md.add([1], 3,4).add([3,5,7,8], [2,4.3,1.25]).subtract(2, [2,3], [1.1,2.3]).result
