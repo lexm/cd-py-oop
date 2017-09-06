@@ -25,3 +25,23 @@ class Dog(Animal):
 fido = Dog("Fido")
 fido.walk().walk().walk().run().run().pet().display_health()
 
+class Dragon(Animal):
+    def __init__(self, name):
+        super(Dragon, self).__init__(name, 170)
+    def fly(self):
+        self.health -= 10
+        return self
+    def display_health(self):
+        super(Dragon, self).display_health()
+        print "I am a Dragon."
+        return self
+
+animal2 = Animal("Freddie", 137)
+#animal2.pet()
+#animal2.fly()
+animal2.display_health()
+
+spot = Dog("Fido")
+#spot.fly()
+dragon1 = Dragon("Viserion")
+dragon1.fly().display_health()
